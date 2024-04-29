@@ -41,8 +41,13 @@ public class Carree {
     public boolean setLargeur(int pLarg)
     {
         boolean ok = validerLargeur(pLarg);
-        if (ok)
+        if (ok) {
             largeur = pLarg;
+        } else if (pLarg > DIM_MAX) {
+            largeur = DIM_MAX;
+        } else if (pLarg < DIM_MIN) {
+            largeur = DIM_MIN;
+        }
         return ok;
     }
 
@@ -54,8 +59,11 @@ public class Carree {
     public boolean setCouleur(String pCoul)
     {
         boolean ok = validerCouleur(pCoul);
-        if (ok)
+        if (ok) {
             couleur = pCoul;
+        } else {
+            couleur = COUL_DEFAUT;
+        }
         return ok;
     }
 
@@ -94,14 +102,5 @@ public class Carree {
     {
         return "La largeur d'un cote du carre est: " + getLargeur()
                 + "\nLa couleur du carree est: " + getCouleur();
-    }
-
-
-    public static void main(String[] args)
-    {
-        Carree carree = new Carree(3,"vert");
-        System.out.println(carree);
-
-
     }
 }
