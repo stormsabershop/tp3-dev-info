@@ -2,6 +2,8 @@
 
 public class Triangle {
 
+    Triangle t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14;
+
     public static final int DIM_MIN = 3;
     public static final int DIM_MAX = 20;
     public static final int LARG_DEFAUT = 3;
@@ -122,14 +124,5 @@ public class Triangle {
         return "La largeur du triangle est: " + getLargeur()
                 + "\nLa hauteur du triangle est: " + getHauteur()
                 + "\nLa couleur du triangle est: " + getCouleur();
-    }
-
-
-    public static void main(String[] args)
-    {
-        Triangle triangle = new Triangle(3,5,"vert");
-        System.out.println(triangle);
-
-
     }
 }
