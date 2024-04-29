@@ -20,7 +20,7 @@ public class Cercle {
 
     Cercle(int pLarg, int pHaut, String pCoul)
     {
-        boolean ok = setRayon(pLarg) && setHauteur(pHaut)
+        boolean ok = setRayon(pLarg)
                 && setCouleur(pCoul);
         if (!ok)
         {
