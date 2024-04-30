@@ -79,7 +79,6 @@ class CarreeTest {
         assertTrue(c1.getLargeur() == 7);
         c1.setLargeur(Carree.DIM_MAX + 1);
         assertTrue(c1.getLargeur() == Carree.DIM_MAX);
-
     }
 
 
