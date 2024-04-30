@@ -5,7 +5,6 @@ public class Cercle {
     public static final int DIM_MIN = 3;
     public static final int DIM_MAX = 20;
     public static final int RAY_DEFAUT = 3;
-    public static final int HAUT_DEFAUT = 5;
     public static final String COUL_DEFAUT = "blanc";
     public static final int LONGUEUR_COUL_MIN = 4;
     public static final int LONGUEUR_COUL_MAX = 15;
@@ -15,12 +14,12 @@ public class Cercle {
 
     Cercle()
     {
-        this(RAY_DEFAUT, HAUT_DEFAUT, COUL_DEFAUT);
+        this(RAY_DEFAUT,COUL_DEFAUT);
     }
 
-    Cercle(int pLarg, int pHaut, String pCoul)
+    Cercle(int pRayo, String pCoul)
     {
-        boolean ok = setRayon(pLarg)
+        boolean ok = setRayon(pRayo)
                 && setCouleur(pCoul);
         if (!ok)
         {
@@ -42,8 +41,13 @@ public class Cercle {
     public boolean setRayon(int pRayo)
     {
         boolean ok = validerRayon(pRayo);
-        if (ok)
+        if (ok) {
             rayon = pRayo;
+        } else if (pRayo > DIM_MAX) {
+            rayon = DIM_MAX;
+        } else {
+            rayon = DIM_MIN;
+        }
         return ok;
     }
 
@@ -55,8 +59,11 @@ public class Cercle {
     public boolean setCouleur(String pCoul)
     {
         boolean ok = validerCouleur(pCoul);
-        if (ok)
+        if (ok) {
             couleur = pCoul;
+        } else {
+            couleur = COUL_DEFAUT;
+        }
         return ok;
     }
 
@@ -95,14 +102,5 @@ public class Cercle {
     {
         return "Le rayon du cercle est: " + getRayon()
                 + "\nLa couleur du triangle est: " + getCouleur();
-    }
-
-
-    public static void main(String[] args)
-    {
-        Cercle cercle = new Cercle(3,5,"vert");
-        System.out.println(cercle);
-
-
     }
 }
